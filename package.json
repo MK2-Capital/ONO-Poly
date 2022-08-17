@@ -26,6 +26,7 @@
     "@web3-react/types": "^6.0.7",
     "@web3-react/walletconnect-connector": "^6.2.13",
     "alchemy-sdk": "^2.0.2",
+    "ethereumjs-abi": "^0.6.8",
     "ethers": "^5.6.9",
     "globby": "^13.1.1",
     "next": "12.0.10",
