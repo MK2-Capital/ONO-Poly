@@ -8,7 +8,7 @@ export const Injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42, 137, 80001],
 });
 
-export let walletActivate = () => {
+export let walletActivate = (Injected) => {
   console.log("test wallet", walletActivate);
 };
 export let walletDeactivate = () => {};
@@ -54,7 +54,7 @@ export const switch_network = () => {
   });
 };
 
-export const check_balance = async (setWalletBalance) => {
+export const check_balance = async (setWalletBalance ) => {
   walletLibrary.provider
     .request({
       method: "eth_getBalance",

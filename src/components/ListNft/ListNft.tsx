@@ -1,4 +1,4 @@
-import SingleNft from "@components/SingleNft/SingleNft";
+// import SingleNft from "@components/SingleNft/SingleNft";
 import { Container } from "./ListNft.styles";
 
 function ListNFT(props: any) {
@@ -9,9 +9,9 @@ function ListNFT(props: any) {
     return (
       <Container>
         <div>Total NFTs in the account: {Count}</div>
-        {Object.values(NFTs).map((nft, i) => (
-          <SingleNft nft={nft} key={i} />
-        ))}
+        {/* {Object.values(NFTs).map((nft, i) => (
+          // <SingleNft nft={nft} key={i} />
+        ))} */}
       </Container>
     );
   } else {

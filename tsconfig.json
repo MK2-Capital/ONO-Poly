@@ -48,6 +48,6 @@
     "src/Layout/Layout.js",
     "src/components/Footer/Footer.js",
     "src/styles/GlobalStyles.js"
-, "src/components/Header/Header.js", "src/components/Header/Header.js", "src/utils/utils.js", "src/utils/Web3Portal.js"  ],
+, "src/utils/Web3Portal.js", "src/components/Header/Header.js", "src/components/Header/Header.js", "src/utils/utils.js", "src/utils/Web3Portal.js"  ],
   "exclude": ["node_modules"]
 }
