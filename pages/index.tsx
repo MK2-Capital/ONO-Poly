@@ -3,15 +3,27 @@ import Layout from "@layout/Layout";
 import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import Header from "@components/Header/Header";
+import { useWeb3Portal, walletActive } from "src/utils/Web3Portal";
+import Navigator from "@components/Navigator/Navigator";
 
 const Home: NextPage = () => {
+  useWeb3Portal();
+
   const { t } = useTranslation("footer");
   return (
     <>
       <Layout>
+        <Header />
         <SEO />
-        <p>{t("common:welcome")}</p>
-        <p>{t("about:name", { name: "Akim" })}</p>
+        {walletActive ? (
+          <Navigator />
+        ) : (
+          <div>
+            <p>{t("common:welcome")}</p>
+            <p> Please log in to access the app</p>
+          </div>
+        )}
       </Layout>
     </>
   );
@@ -22,7 +34,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       ...(await serverSideTranslations(
         context?.locale === undefined ? "" : context.locale,
-        ["common", "about"],
+        ["common", "about"]
       )),
       // Will be passed to the page component as props
     },
