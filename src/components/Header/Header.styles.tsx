@@ -32,7 +32,6 @@ export const ConnectWalletButton = styled.div`
 `;
 
 export const ConnectWalletInfo = styled.div`
-  margin-block-end: 50px;
   color: azure;
-  width: 40vw;
+  width: 30vw;
 `;

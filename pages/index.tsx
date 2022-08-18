@@ -4,11 +4,39 @@ import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Header from "@components/Header/Header";
-import { useWeb3Portal, walletActive } from "src/utils/Web3Portal";
+import {
+  useWeb3Portal,
+  walletAccount,
+  walletActive,
+} from "src/utils/Web3Portal";
 import Navigator from "@components/Navigator/Navigator";
+import ListNFT from "@components/ListNft/ListNft";
+import { alchemy } from "@config/AlchemyConfig";
+import { useState, useEffect } from "react";
 
 const Home: NextPage = () => {
   useWeb3Portal();
+
+  const [loadNFT, setLoadNFT] = useState(false);
+  const [listNFT, setListNFT] = useState();
+  const [nftCount, setNftCount] = useState(0);
+  const [nfts, setNfts] = useState(0);
+
+  useEffect(() => {
+    if (walletAccount != null) {
+      alchemy.nft
+        .getNftsForOwner(String(walletAccount))
+        .then((response: any) => {
+          console.log(response);
+          setNftCount(response.totalCount);
+          setNfts(response.ownedNfts);
+
+          setLoadNFT(true);
+          setListNFT(response);
+        })
+        .catch((err) => console.error(err));
+    }
+  }, [walletAccount]);
 
   const { t } = useTranslation("footer");
   return (
@@ -17,7 +45,10 @@ const Home: NextPage = () => {
         <Header />
         <SEO />
         {walletActive ? (
-          <Navigator />
+          <div>
+            <Navigator />
+            <ListNFT count={nftCount} nfts={nfts} />
+          </div>
         ) : (
           <div>
             <p>{t("common:welcome")}</p>
