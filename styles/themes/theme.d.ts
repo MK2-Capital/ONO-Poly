@@ -12,6 +12,17 @@ declare module "styled-components" {
       text: {
         primary: string;
       };
+      header: {
+        background: {
+          top: string;
+          fixed: string;
+        };
+        link: {
+          primary: string;
+          hover: string;
+          active: string;
+        };
+      };
     };
   }
 }

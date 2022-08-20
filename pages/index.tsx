@@ -9,10 +9,9 @@ import {
   walletAccount,
   walletActive,
 } from "src/utils/Web3Portal";
-import Navigator from "@components/Navigator/Navigator";
 import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const Home: NextPage = () => {
   useWeb3Portal();
@@ -21,6 +20,19 @@ const Home: NextPage = () => {
   const [listNFT, setListNFT] = useState();
   const [nftCount, setNftCount] = useState(0);
   const [nfts, setNfts] = useState(0);
+  const [activeLink, setActiveLink] = useState<string>("profile");
+
+  const refProfileContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
+
+  const refNftListContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
+
+  const handleActiveLink = useCallback(() => {
+    setActiveLink("profile");
+
+    setActiveLink("list_nft");
+
+    setActiveLink("games");
+  }, []);
 
   useEffect(() => {
     if (walletAccount != null) {
@@ -42,12 +54,11 @@ const Home: NextPage = () => {
   return (
     <>
       <Layout>
-        <Header />
+        <Header activeLink={"Profile"} />
         <SEO />
         {walletActive ? (
           <div>
-            <Navigator />
-            <ListNFT count={nftCount} nfts={nfts} />
+            <ListNFT id="list_nft" count={nftCount} nfts={nfts} />
           </div>
         ) : (
           <div>

@@ -13,6 +13,17 @@ const defaultTheme: DefaultTheme = {
     text: {
       primary: "hsl(210deg 11% 11%)",
     },
+    header: {
+      background: {
+        top: "#d02d2d",
+        fixed: "hsl(210deg 9% 96%)",
+      },
+      link: {
+        primary: "white",
+        hover: "hsla(0, 0%, 0%, 1)",
+        active: "hsla(0, 0%, 0%, 1)",
+      },
+    },
   },
 };
 

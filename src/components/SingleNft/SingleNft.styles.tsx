@@ -40,6 +40,6 @@ export const Description = styled.div`
   font-style: normal;
   margin-top: 10px;
   font-weight: 400;
-  max-width: 200px;
+  max-width: 250px;
   font-size: 12px;
 `;
