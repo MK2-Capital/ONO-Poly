@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from "@web3-react/injected-connector";
+import Web3 from 'web3';
+import OnoBallLite from "@config/onoBallLite.json"
 
 import { toHex, truncateAddress } from "./utils";
 
@@ -65,3 +67,19 @@ export const check_balance = async (setWalletBalance ) => {
       return result;
     });
 };
+
+export const play_game = async (walletAccount) => {
+  console.log("test", walletAccount);
+
+  const web3 = new Web3("http://localhost:3000")
+
+  const contract = await new web3.eth.Contract(OnoBallLite, "0xb7957B21cBC56dA2c97A1e64Fd6bD2c6bcdfD575")
+
+  console.log('test contract', contract)
+
+  const  playGame  = await contract.methods.play_game();
+
+  console.log('test', playGame)
+  
+
+}

@@ -13,14 +13,14 @@ import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const Home: NextPage = () => {
+const List: NextPage = () => {
   useWeb3Portal();
 
   const [loadNFT, setLoadNFT] = useState(false);
   const [listNFT, setListNFT] = useState();
   const [nftCount, setNftCount] = useState(0);
   const [nfts, setNfts] = useState(0);
-  const [activeLink, setActiveLink] = useState<string>("profile");
+  const [activeLink, setActiveLink] = useState<string>("list_nft");
 
   const refProfileContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refSiteMain = useRef<HTMLDivElement>(null);
@@ -71,15 +71,6 @@ const Home: NextPage = () => {
               ref={refNftListContainer}
               visibility={activeLink == "list_nft" ? true : false}
             />
-
-            <Game
-              id="game"
-              count={nftCount}
-              nfts={nfts}
-              ref={refGameContainer}
-              //   visibility={activeLink == "game" ? true : false}
-              visibility={true}
-            />
           </div>
         ) : (
           <div>
@@ -104,4 +95,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default Home;
+export default List;

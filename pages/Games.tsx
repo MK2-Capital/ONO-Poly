@@ -13,32 +13,20 @@ import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const Home: NextPage = () => {
+const Games: NextPage = () => {
   useWeb3Portal();
 
   const [loadNFT, setLoadNFT] = useState(false);
   const [listNFT, setListNFT] = useState();
   const [nftCount, setNftCount] = useState(0);
   const [nfts, setNfts] = useState(0);
-  const [activeLink, setActiveLink] = useState<string>("profile");
+  const [activeLink, setActiveLink] = useState<string>("games");
 
   const refProfileContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refSiteMain = useRef<HTMLDivElement>(null);
 
   const refNftListContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
   const refGameContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-
-  const handleActiveLink = useCallback(() => {
-    console.log(refProfileContainer);
-    console.log(refProfileContainer);
-    console.log(refGameContainer);
-
-    // setActiveLink("profile");
-
-    setActiveLink("list_nft");
-
-    setActiveLink("games");
-  }, []);
 
   useEffect(() => {
     if (walletAccount != null) {
@@ -63,24 +51,7 @@ const Home: NextPage = () => {
         <Header activeLink={activeLink} />
         <SEO />
         {walletActive ? (
-          <div>
-            <ListNFT
-              id="list_nft"
-              count={nftCount}
-              nfts={nfts}
-              ref={refNftListContainer}
-              visibility={activeLink == "list_nft" ? true : false}
-            />
-
-            <Game
-              id="game"
-              count={nftCount}
-              nfts={nfts}
-              ref={refGameContainer}
-              //   visibility={activeLink == "game" ? true : false}
-              visibility={true}
-            />
-          </div>
+          <Game />
         ) : (
           <div>
             <p>{t("common:welcome")}</p>
@@ -104,4 +75,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export default Home;
+export default Games;
