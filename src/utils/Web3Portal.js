@@ -2,9 +2,12 @@ import { useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { InjectedConnector } from "@web3-react/injected-connector";
 import Web3 from 'web3';
+
+
 import OnoBallLite from "@config/onoBallLite.json"
 
 import { toHex, truncateAddress } from "./utils";
+import { result } from "lodash";
 
 export const Injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42, 137, 80001],
@@ -70,16 +73,14 @@ export const check_balance = async (setWalletBalance ) => {
 
 export const play_game = async (walletAccount) => {
   console.log("test", walletAccount);
+  // CREATE A NEW PROVIDER WITH WEB3
+  const web3 = new Web3("https://polygon-mumbai.g.alchemy.com/v2/b_lv01TkprOcVaqydU9avZuQF1b651B7")
 
-  const web3 = new Web3("http://localhost:3000")
+  const contract =  new web3.eth.Contract(OnoBallLite, "0xb7957B21cBC56dA2c97A1e64Fd6bD2c6bcdfD575")
 
-  const contract = await new web3.eth.Contract(OnoBallLite, "0xb7957B21cBC56dA2c97A1e64Fd6bD2c6bcdfD575")
+  console.log('test_contract', contract)
 
-  console.log('test contract', contract)
+  const play_game = await contract.methods.playGame().send({from: walletAccount})
 
-  const  playGame  = await contract.methods.play_game();
-
-  console.log('test', playGame)
-  
-
+  console.log('play', play_game)
 }
