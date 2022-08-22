@@ -17,9 +17,7 @@ import {
   ConnectButton,
   ConnectWalletButton,
   ConnectWalletInfo,
-  Container,
   HeaderContainer,
-  Logo,
 } from "./Header.styles";
 import { HeaderProps } from "./Header.types";
 

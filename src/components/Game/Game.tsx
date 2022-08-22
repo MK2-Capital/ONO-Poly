@@ -1,11 +1,11 @@
-import Image from "next/image";
+//import Image from "next/image";
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
 
 import { Container, GameButton } from "./Game.styles";
 import { play_game, walletAccount } from "src/utils/Web3Portal";
-import game from "../../../public/assets/game/game.gif";
-function Game(props: any) {
+//import game from "../../../public/assets/game/game.gif";
+function Game() {
   const [playing, setPlaying] = useState(false);
   return (
     <Container>

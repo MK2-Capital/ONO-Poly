@@ -9,14 +9,16 @@ import {
   walletAccount,
   walletActive,
 } from "src/utils/Web3Portal";
-import ListNFT from "@components/ListNft/ListNft";
+//import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
-import { useState, useEffect, useRef, useCallback } from "react";
+//import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 const Games: NextPage = () => {
   useWeb3Portal();
 
-  const [activeLink, setActiveLink] = useState<string>("games");
+  //const [activeLink, setActiveLink] = useState<string>("games");
+  const [activeLink] = useState<string>("games");
 
   useEffect(() => {
     if (walletAccount != null) {

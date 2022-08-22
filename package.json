@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev",
     "build": "cross-env NODE_ENV=production next build",
-    "postbuild": "cross-env NODE_ENV=production next-sitemap --config next-sitemap.js",
+    "postbuild": "",
     "start": "cross-env NODE_ENV=production next start",
     "lint": "next lint",
     "lint-staged": "lint-staged",

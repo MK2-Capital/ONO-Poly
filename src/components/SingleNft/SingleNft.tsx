@@ -4,14 +4,13 @@ import {
   Image,
   Name,
   Description,
-  ButtonContainer,
   OpenseaButton,
 } from "./SingleNft.styles";
 
 function SingleNft(props: any) {
   // const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const index = props.i;
+  //const index = props.i;
   const theNFT = props.nft;
 
   console.log("test,", theNFT);
@@ -27,7 +26,7 @@ function SingleNft(props: any) {
       return "https://opensea.io/assets/matic/" + address;
     } else {
       return (
-        "https://opensea.io/assets/mumbai/" +
+        "https://testnets.opensea.io/assets/mumbai/" +
         String(address) +
         "/" +
         String(tokenId)

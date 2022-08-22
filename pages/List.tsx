@@ -1,4 +1,5 @@
-import { Game, SEO } from "@components";
+//import { Game, SEO } from "@components";
+import { SEO } from "@components";
 import Layout from "@layout/Layout";
 import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -11,7 +12,8 @@ import {
 } from "src/utils/Web3Portal";
 import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
-import { useState, useEffect, useRef, useCallback } from "react";
+//import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const List: NextPage = () => {
   useWeb3Portal();
@@ -20,7 +22,8 @@ const List: NextPage = () => {
   const [listNFT, setListNFT] = useState();
   const [nftCount, setNftCount] = useState(0);
   const [nfts, setNfts] = useState(0);
-  const [activeLink, setActiveLink] = useState<string>("list_nft");
+  //const [activeLink, setActiveLink] = useState<string>("list_nft");
+  const [activeLink] = useState<string>("list_nft");
 
   const refNftListContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
 
@@ -34,7 +37,9 @@ const List: NextPage = () => {
           setNfts(response.ownedNfts);
 
           setLoadNFT(true);
+          console.log(loadNFT);
           setListNFT(response);
+          console.log(listNFT);
         })
         .catch((err) => console.error(err));
     }

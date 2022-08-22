@@ -23,7 +23,7 @@ export let walletAccount = null;
 export let walletLibrary = null;
 export let walletError = null;
 
-export const useWeb3Portal = async () => {
+function useWeb3Portal() {
   const { activate, deactivate, active, chainId, account, library, error } =
     useWeb3React();
 
@@ -122,3 +122,5 @@ export const play_game = async (walletAccount) => {
 .on('error', console.error); // If a out of gas error, the second parameter is the receipt.
 
 }
+
+export {useWeb3Portal};

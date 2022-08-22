@@ -3,7 +3,7 @@ import { Container, NftContainer, Title } from "./ListNft.styles";
 
 function ListNFT(props: any) {
   let NFTs = props.nfts;
-  let Count = props.count;
+  //let Count = props.count;
 
   console.log("props", props.nfts);
   if (NFTs != null) {
