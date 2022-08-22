@@ -4,12 +4,13 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: 250px;
   height: 400px;
   padding: 10px;
   border: 1px solid;
   border-radius: 10px;
   margin: 5px;
+  margin-block-end: 40px;
 `;
 
 export const Image = styled.img`

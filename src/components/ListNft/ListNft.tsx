@@ -1,5 +1,5 @@
 import SingleNft from "@components/SingleNft/SingleNft";
-import { Container, NftContainer } from "./ListNft.styles";
+import { Container, NftContainer, Title } from "./ListNft.styles";
 
 function ListNFT(props: any) {
   let NFTs = props.nfts;
@@ -9,7 +9,7 @@ function ListNFT(props: any) {
   if (NFTs != null) {
     return (
       <Container>
-        <div>My NFT LIST : {Count}</div>
+        <Title>My NFT LIST : {Count}</Title>
 
         <NftContainer>
           {Object.values(NFTs).map((nft, i) => (

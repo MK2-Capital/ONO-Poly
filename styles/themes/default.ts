@@ -9,13 +9,13 @@ const defaultTheme: DefaultTheme = {
   },
   // Colors for layout
   colors: {
-    background_main: "hsl(210deg 9% 96%)",
+    background_main: "black",
     text: {
-      primary: "hsl(210deg 11% 11%)",
+      primary: "white",
     },
     header: {
       background: {
-        top: "#d02d2d",
+        top: "black",
         fixed: "hsl(210deg 9% 96%)",
       },
       link: {

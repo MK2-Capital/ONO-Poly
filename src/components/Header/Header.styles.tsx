@@ -6,8 +6,8 @@ import { IStyledHeader } from "./Header.types";
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  background: #d02d2d;
   position: sticky;
+  margin-top: 10px;
   top: 0;
   height: 90px;
   width: 100%;
@@ -50,6 +50,7 @@ export const HeaderContainer = styled.header<IStyledHeader>`
   position: ${(props) => (props.isTop ? "relative" : "fixed")};
   top: 0px;
   width: 100%;
+
   height: 70px;
   padding: 0 20px;
   z-index: 11;
