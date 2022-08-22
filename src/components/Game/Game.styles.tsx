@@ -12,7 +12,7 @@ export const GameButton = styled.button`
   border-radius: 6px;
   padding: 5px;
   color: white;
-  width: 30vw;
+  width: 40vw;
   border: 1px;
   background-color: #d02d2d;
   margin-top: 10px;

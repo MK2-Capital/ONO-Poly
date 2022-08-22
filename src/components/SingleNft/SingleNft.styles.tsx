@@ -4,18 +4,19 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
-  height: 400px;
+  width: 350px;
   padding: 10px;
-  border: 1px solid;
+  border: 2px solid;
   border-radius: 10px;
   margin: 5px;
-  margin-block-end: 40px;
+  margin-right: 15px;
 `;
 
+// export const NftImage = styled(Image)
 export const Image = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 275px;
+  height: 250px;
+  border-radius: 10px;
 `;
 
 export const ButtonContainer = styled.div`
@@ -25,6 +26,7 @@ export const ButtonContainer = styled.div`
 export const Name = styled.div`
   margin-top: 10px;
   font-style: normal;
+  color: #ff6f5c;
   font-weight: 400;
   font-size: 16px;
 `;
@@ -34,7 +36,7 @@ export const OpenseaButton = styled.button`
   padding: 5px;
   color: white;
   border: 1px;
-  background-color: #d02d2d;
+  background-color: #ff6f5c;
   margin-top: 10px;
 `;
 
@@ -42,6 +44,6 @@ export const Description = styled.div`
   font-style: normal;
   margin-top: 10px;
   font-weight: 400;
-  max-width: 250px;
+  max-width: 300px;
   font-size: 12px;
 `;

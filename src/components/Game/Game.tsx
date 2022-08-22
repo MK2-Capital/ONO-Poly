@@ -5,7 +5,7 @@ import game from "../../../public/assets/game/game.gif";
 function Game(props: any) {
   return (
     <Container>
-      <Image title="GAME" src={game} width={200} />
+      <Image title="GAME" src={game} width={400} />
 
       <GameButton onClick={() => play_game(walletAccount)}>
         Play Game

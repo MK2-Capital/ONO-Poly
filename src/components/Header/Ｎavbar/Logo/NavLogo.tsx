@@ -7,7 +7,7 @@ function NavLogo() {
     <NavLogoContainer>
       <Link href="/">
         <a aria-label="home" rel="noreferrer noopener">
-          <Image src={"/assets/logo/logo_crop.png"} width={100} height={70} />
+          <Image src={"/assets/logo/logo_crop.png"} width={180} height={50} />
         </a>
       </Link>
     </NavLogoContainer>

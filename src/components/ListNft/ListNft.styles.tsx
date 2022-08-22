@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
   max-width: 70vw;
 `;
 
@@ -20,8 +21,11 @@ export const NftContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  margin-top: 20px;
+
   @media ${breakpoints.media_screens.landscape_tablet} {
     flex-direction: row;
+    margin-left: 300px;
   }
 `;

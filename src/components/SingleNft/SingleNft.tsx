@@ -49,7 +49,7 @@ function SingleNft(props: any) {
 
       <Name> {name}</Name>
 
-      <Description> {description.substring(0, 240)} ... </Description>
+      <Description> {description} </Description>
 
       <OpenseaButton
         onClick={() => {
