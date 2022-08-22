@@ -4,6 +4,11 @@ import { normalize } from "styled-normalize";
 const GlobalStyles = createGlobalStyle`
  ${normalize};
 
+ @font-face {
+  font-family: 'Syncopate';
+  src: url('/fonts/SynCopate.ttf');
+ }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +16,6 @@ const GlobalStyles = createGlobalStyle`
   }
   html {
     scroll-behavior: smooth;
-
   }
   body {
     font-family: ${(props) => props.theme.fonts.main};

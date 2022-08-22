@@ -38,6 +38,16 @@ export const ConnectWalletButton = styled.div`
   margin-right: 50px;
 `;
 
+export const ConnectButton = styled.button`
+  border-radius: 6px;
+  padding: 5px;
+  color: white;
+  width: 10vw;
+  border: 1px;
+  background-color: #ff6f5c;
+  margin-top: 10px;
+`;
+
 export const ConnectWalletInfo = styled.div`
   color: azure;
   width: 30vw;

@@ -16,17 +16,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 const Games: NextPage = () => {
   useWeb3Portal();
 
-  const [loadNFT, setLoadNFT] = useState(false);
-  const [listNFT, setListNFT] = useState();
-  const [nftCount, setNftCount] = useState(0);
-  const [nfts, setNfts] = useState(0);
   const [activeLink, setActiveLink] = useState<string>("games");
-
-  const refProfileContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const refSiteMain = useRef<HTMLDivElement>(null);
-
-  const refNftListContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const refGameContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
 
   useEffect(() => {
     if (walletAccount != null) {
@@ -34,11 +24,6 @@ const Games: NextPage = () => {
         .getNftsForOwner(String(walletAccount))
         .then((response: any) => {
           console.log(response);
-          setNftCount(response.totalCount);
-          setNfts(response.ownedNfts);
-
-          setLoadNFT(true);
-          setListNFT(response);
         })
         .catch((err) => console.error(err));
     }

@@ -13,7 +13,11 @@ export const GameButton = styled.button`
   padding: 5px;
   color: white;
   width: 40vw;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px;
-  background-color: #d02d2d;
-  margin-top: 10px;
+  background-color: #ff6f5c;
+  margin-top: 30px;
 `;

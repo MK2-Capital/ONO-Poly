@@ -4,13 +4,7 @@ import type { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Header from "@components/Header/Header";
-import {
-  useWeb3Portal,
-  walletAccount,
-  walletActive,
-} from "src/utils/Web3Portal";
-import ListNFT from "@components/ListNft/ListNft";
-import { alchemy } from "@config/AlchemyConfig";
+import { useWeb3Portal } from "src/utils/Web3Portal";
 import { useState, useEffect, useRef, useCallback } from "react";
 import Profile from "@components/Profile/Profile";
 

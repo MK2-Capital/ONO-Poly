@@ -14,6 +14,7 @@ import { useHeaderStyle } from "@hooks";
 
 import {
   AccountInfo,
+  ConnectButton,
   ConnectWalletButton,
   ConnectWalletInfo,
   Container,
@@ -61,14 +62,14 @@ const Header = ({ activeLink }: HeaderProps) => {
     } else {
       return (
         <ConnectWalletButton>
-          <button
+          <ConnectButton
             onClick={() => {
               //  connect();
               walletActivate(Injected);
             }}
           >
             Connect Wallet
-          </button>
+          </ConnectButton>
         </ConnectWalletButton>
       );
     }

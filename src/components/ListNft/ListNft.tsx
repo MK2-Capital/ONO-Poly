@@ -9,7 +9,7 @@ function ListNFT(props: any) {
   if (NFTs != null) {
     return (
       <Container>
-        <Title>My NFT LIST : {Count}</Title>
+        <Title>My NFT LIST </Title>
 
         <NftContainer>
           {Object.values(NFTs).map((nft, i) => (
@@ -19,7 +19,7 @@ function ListNFT(props: any) {
       </Container>
     );
   } else {
-    return <div>Nothing to show ...</div>;
+    return <div> Nothing to show ...</div>;
   }
 }
 

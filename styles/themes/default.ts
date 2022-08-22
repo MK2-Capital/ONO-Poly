@@ -3,9 +3,9 @@ import { DefaultTheme } from "styled-components";
 const defaultTheme: DefaultTheme = {
   // Temp fonts
   fonts: {
-    title: "'Poppins', sans-serif",
-    main: "'Open Sans', sans-serif",
-    mono: "'Space Mono', sans-serif",
+    title: "'Syncopate', sans-serif",
+    main: "'Syncopate', sans-serif",
+    mono: "'Syncopate', sans-serif",
   },
   // Colors for layout
   colors: {

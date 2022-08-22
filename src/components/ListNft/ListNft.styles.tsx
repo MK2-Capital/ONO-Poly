@@ -6,26 +6,26 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  max-width: 70vw;
+  max-width: 100vw;
 `;
 
 export const Title = styled.div`
-  font-style: normal;
+  font-style: bold;
   font-weight: 700;
-  font-size: 32.4368px;
+  font-size: 40px;
   line-height: 34px;
   margin-block-start: 10px;
-  margin-left: 35px;
+  margin-left: 40px;
 `;
 export const NftContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 
   @media ${breakpoints.media_screens.landscape_tablet} {
-    flex-direction: row;
-    margin-left: 300px;
+    flex-wrap: wrap;
+    margin-left: 20 px;
   }
 `;

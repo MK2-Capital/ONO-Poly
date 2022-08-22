@@ -22,23 +22,7 @@ const List: NextPage = () => {
   const [nfts, setNfts] = useState(0);
   const [activeLink, setActiveLink] = useState<string>("list_nft");
 
-  const refProfileContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const refSiteMain = useRef<HTMLDivElement>(null);
-
   const refNftListContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const refGameContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-
-  const handleActiveLink = useCallback(() => {
-    console.log(refProfileContainer);
-    console.log(refProfileContainer);
-    console.log(refGameContainer);
-
-    // setActiveLink("profile");
-
-    setActiveLink("list_nft");
-
-    setActiveLink("games");
-  }, []);
 
   useEffect(() => {
     if (walletAccount != null) {
