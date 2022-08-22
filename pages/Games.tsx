@@ -11,7 +11,6 @@ import {
 } from "src/utils/Web3Portal";
 //import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
-//import { useState, useEffect, useRef, useCallback } from "react";
 import { useState, useEffect } from "react";
 
 const Games: NextPage = () => {
