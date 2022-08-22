@@ -71,22 +71,43 @@ export const check_balance = async (setWalletBalance ) => {
     });
 };
 
+let isInitialized = false;
+let nftContract;
+
+
+export const init = async () => {
+    let provider = window.ethereum;
+    if (typeof provider !== 'undefined') {
+    
+    provider
+    .request({method: 'eth_requestAccounts' })
+    .then((accounts) => {
+      selectedAccount = accounts[0];
+      console.log(`Selected account is ${selectedAccount}`);
+    })
+    .catch((err) => {
+      console.log(err);
+      return;
+    });
+    window.ethereum.on('accountsChanged', function (accounts){
+      selectedAccount = accounts[0];
+      console.log(`Selected account changed to ${selectedAccount}`);
+    });
+  }
+  const web3 = new Web3(provider);
+  const networkId = await web3.eth.net.getId();
+  nftContract = new web3.eth.Contract(OnoBallLite, "0xb7957B21cBC56dA2c97A1e64Fd6bD2c6bcdfD575")
+  
+  isInitialized = true;
+};
+
+
 export const play_game = async (walletAccount) => {
   console.log("test", walletAccount);
-  // CREATE A NEW PROVIDER WITH WEB3
-  const web3 = new Web3("localhost:8545")
 
-  const contract =  new web3.eth.Contract(OnoBallLite, "0xb7957B21cBC56dA2c97A1e64Fd6bD2c6bcdfD575")
-
-  console.log('test_contract', contract)
-
-  const tx = {
-    from : walletAccount,
-    to : "0xb7957B21cBC56dA2c97A1e64Fd6bD2c6bcdfD575",
-    gas: 0,
-    data:  contract.methods.playGame().encodeABI()
+  if (!isInitialized) {
+    await init();
   }
-  const play_game = await contract.methods.playGame().send({from: walletAccount})
+  return nftContract.methods.playGame().send({from: walletAccount})
 
-  console.log('play', play_game)
 }

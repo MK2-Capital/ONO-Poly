@@ -22,6 +22,7 @@ function SingleNft(props: any) {
   const address = theNFT["contract"]["address"];
   const tokenId = theNFT["tokenId"];
 
+  console.log("image", imgSrc);
   const openSeaUrl = () => {
     if (walletChainId == 137) {
       return "https://opensea.io/assets/matic/" + address;
@@ -35,9 +36,14 @@ function SingleNft(props: any) {
     }
   };
 
+  const isIpfs = (imgSrc: string) => {
+    if (imgSrc.startsWith("ipfs://")) {
+      return "https://ipfs.io/ipfs/" + imgSrc.slice(6);
+    } else return imgSrc;
+  };
   return (
     <Card>
-      <Image src={imgSrc} alt={name} />
+      <Image src={isIpfs(imgSrc)} alt={name} />
 
       <Name> Name: {name}</Name>
 
