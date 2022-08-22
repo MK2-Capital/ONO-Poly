@@ -108,6 +108,17 @@ export const play_game = async (walletAccount) => {
   if (!isInitialized) {
     await init();
   }
-  return nftContract.methods.playGame().send({from: walletAccount})
+  return nftContract.methods.playGame().send({from: walletAccount}).on('transactionHash', function(hash){
+    console.log('transactionHash');
+    alert('you won one ONO NFT, please go to the NFT to see your gift!, it can takes a few minutes before the transaction is completed')
+})
+.on('receipt', function(receipt){
+    console.log('receipt');
+})
+.on('confirmation', function(confirmationNumber, receipt) {
+    console.log('confirmation', confirmationNumber);
+    showFilesWithMessage();
+})
+.on('error', console.error); // If a out of gas error, the second parameter is the receipt.
 
 }

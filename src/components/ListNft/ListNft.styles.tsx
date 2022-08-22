@@ -1,11 +1,16 @@
+import breakpoints from "@styles/breakpoints";
 import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+
   flex-direction: column;
 `;
 
 export const NftContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  @media ${breakpoints.media_screens.landscape_tablet} {
+    flex-direction: row;
+  }
 `;

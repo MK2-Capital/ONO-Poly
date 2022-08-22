@@ -34,6 +34,7 @@ export const OpenseaButton = styled.button`
   color: white;
   border: 1px;
   background-color: #d02d2d;
+  margin-top: 10px;
 `;
 
 export const Description = styled.div`

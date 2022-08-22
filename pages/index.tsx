@@ -12,49 +12,12 @@ import {
 import ListNFT from "@components/ListNft/ListNft";
 import { alchemy } from "@config/AlchemyConfig";
 import { useState, useEffect, useRef, useCallback } from "react";
+import Profile from "@components/Profile/Profile";
 
 const Home: NextPage = () => {
   useWeb3Portal();
 
-  const [loadNFT, setLoadNFT] = useState(false);
-  const [listNFT, setListNFT] = useState();
-  const [nftCount, setNftCount] = useState(0);
-  const [nfts, setNfts] = useState(0);
   const [activeLink, setActiveLink] = useState<string>("profile");
-
-  const refProfileContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const refSiteMain = useRef<HTMLDivElement>(null);
-
-  const refNftListContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-  const refGameContainer = useRef<HTMLDivElement>({} as HTMLDivElement);
-
-  const handleActiveLink = useCallback(() => {
-    console.log(refProfileContainer);
-    console.log(refProfileContainer);
-    console.log(refGameContainer);
-
-    // setActiveLink("profile");
-
-    setActiveLink("list_nft");
-
-    setActiveLink("games");
-  }, []);
-
-  useEffect(() => {
-    if (walletAccount != null) {
-      alchemy.nft
-        .getNftsForOwner(String(walletAccount))
-        .then((response: any) => {
-          console.log(response);
-          setNftCount(response.totalCount);
-          setNfts(response.ownedNfts);
-
-          setLoadNFT(true);
-          setListNFT(response);
-        })
-        .catch((err) => console.error(err));
-    }
-  }, [walletAccount]);
 
   const { t } = useTranslation("footer");
   return (
@@ -62,31 +25,7 @@ const Home: NextPage = () => {
       <Layout>
         <Header activeLink={activeLink} />
         <SEO />
-        {walletActive ? (
-          <div>
-            <ListNFT
-              id="list_nft"
-              count={nftCount}
-              nfts={nfts}
-              ref={refNftListContainer}
-              visibility={activeLink == "list_nft" ? true : false}
-            />
-
-            <Game
-              id="game"
-              count={nftCount}
-              nfts={nfts}
-              ref={refGameContainer}
-              //   visibility={activeLink == "game" ? true : false}
-              visibility={true}
-            />
-          </div>
-        ) : (
-          <div>
-            <p>{t("common:welcome")}</p>
-            <p> Please log in to access the app</p>
-          </div>
-        )}
+        <Profile />
       </Layout>
     </>
   );

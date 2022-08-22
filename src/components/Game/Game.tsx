@@ -1,16 +1,16 @@
 import Image from "next/image";
-import { Container } from "./Game.styles";
+import { Container, GameButton } from "./Game.styles";
 import { play_game, walletAccount } from "src/utils/Web3Portal";
 import game from "../../../public/assets/game/game.gif";
 function Game(props: any) {
   return (
-    <div>
-      <Container>
-        <Image title="GAME" src={game} />
+    <Container>
+      <Image title="GAME" src={game} width={200} />
 
-        <button onClick={() => play_game(walletAccount)}>Play Game</button>
-      </Container>
-    </div>
+      <GameButton onClick={() => play_game(walletAccount)}>
+        Play Game
+      </GameButton>
+    </Container>
   );
 }
 

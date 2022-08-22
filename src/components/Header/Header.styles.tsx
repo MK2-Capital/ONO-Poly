@@ -25,9 +25,13 @@ export const Logo = styled.div`
 `;
 
 export const AccountInfo = styled.div`
+  visibility: hidden;
   margin-left: auto;
   width: 50%;
   text-align: end;
+  @media ${breakpoints.media_screens.landscape_tablet} {
+    visibility: initial;
+  }
 `;
 
 export const ConnectWalletButton = styled.div`

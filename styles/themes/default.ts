@@ -20,8 +20,8 @@ const defaultTheme: DefaultTheme = {
       },
       link: {
         primary: "white",
-        hover: "hsla(0, 0%, 0%, 1)",
-        active: "hsla(0, 0%, 0%, 1)",
+        hover: "white",
+        active: "white",
       },
     },
   },
